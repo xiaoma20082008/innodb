@@ -1117,8 +1117,7 @@ void sync_init(void)
 
   sync_initialized = TRUE;
 
-  /* Create the primary system wait array which is protected by an OS
-  mutex */
+  /* Create the primary system wait array which is protected by an OS mutex */
 
   sync_primary_wait_array = sync_array_create(OS_THREAD_MAX_N, SYNC_ARRAY_OS_MUTEX);
 

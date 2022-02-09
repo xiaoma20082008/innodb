@@ -13,8 +13,29 @@ using ulong = unsigned long;
 
 class InnoDB {
 public:
+  InnoDB() {}
+  virtual ~InnoDB() {}
+
+public:
   // region ddl
 
+  /**
+   * Create an InnoDB database.
+   *
+   * @param path database path
+   * @return error number.
+   * @retval 0 if success
+   */
+  virtual int CreateDatabase(const char *path) = 0;
+
+  /**
+   * Removes all tables in the named database inside InnoDB.
+   *
+   * @param path database path
+   * @return error number.
+   * @retval 0 if success
+   */
+  virtual int DropDatabase(const char *path) = 0;
   /**
    * Create an InnoDB table.
    *
@@ -48,14 +69,12 @@ public:
   /**
    * Rename an InnoDB table.
    *
-   * @param from source table name
-   * @param to target table name
-   * @param from_table
-   * @param to_table
+   * @param from source table name in filename-safe encoding
+   * @param to target table name in filename-safe encoding
    * @return error number.
    * @retval 0 if success
    */
-  virtual int RenameTable(const char *from, const char *to, const void *from_table, void *to_table) = 0;
+  virtual int RenameTable(const char *from, const char *to) = 0;
 
   // endregion ddl
 
@@ -99,7 +118,7 @@ public:
 
   // endregion dml
 
-  // region
+  // region lifecycle
 
   virtual int Init() = 0;
 
@@ -107,9 +126,13 @@ public:
 
   virtual int Close() = 0;
 
+  // endregion lifecycle
+
   virtual double ScanTime() = 0;
 
-  // endregion
+protected:
+private:
+  const char* _database;
 };
 
 } // namespace innodb

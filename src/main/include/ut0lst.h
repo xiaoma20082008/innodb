@@ -47,8 +47,7 @@ LRU_node_t.
 
 #define UT_LIST_NODE_T(TYPE)                                                                                           \
   struct {                                                                                                             \
-    TYPE *prev; /* pointer to the previous node,                                                                       \
-                NULL if start of list */                                                                               \
+    TYPE *prev; /* pointer to the previous node, NULL if start of list */                                              \
     TYPE *next; /* pointer to next node, NULL if end of list */                                                        \
   }
 

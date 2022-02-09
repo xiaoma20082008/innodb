@@ -263,15 +263,8 @@ struct mem_block_info_struct {
   ulint magic_n;     /* magic number for debugging */
   char file_name[8]; /* file name where the mem heap was created */
   ulint line;        /* line number where the mem heap was created */
-  UT_LIST_BASE_NODE_T(mem_block_t)
-  base; /* In the first block in the
-the list this is the base node of the list of blocks;
-in subsequent blocks this is undefined */
-  UT_LIST_NODE_T(mem_block_t)
-  list;             /* This contains pointers to next
-  and prev in the list. The first block allocated
-  to the heap is also the first block in this list,
-  though it also contains the base node of the list. */
+  UT_LIST_BASE_NODE_T(mem_block_t) base; /* In the first block in the list this is the base node of the list of blocks; in subsequent blocks this is undefined */
+  UT_LIST_NODE_T(mem_block_t) list; /* This contains pointers to next and prev in the list. The first block allocated to the heap is also the first block in this list, though it also contains the base node of the list. */
   ulint len;        /* physical length of this block in bytes */
   ulint type;       /* type of heap: MEM_HEAP_DYNAMIC, or
                     MEM_HEAP_BUF possibly ORed to MEM_HEAP_BTR_SEARCH */
@@ -289,9 +282,7 @@ in subsequent blocks this is undefined */
   free block to the heap, if we need more space;
   otherwise, this is NULL */
 #ifdef MEM_PERIODIC_CHECK
-  UT_LIST_NODE_T(mem_block_t) mem_block_list;
-  /* List of all mem blocks allocated; protected
-  by the mem_comm_pool mutex */
+  UT_LIST_NODE_T(mem_block_t) mem_block_list; /* List of all mem blocks allocated; protected by the mem_comm_pool mutex */
 #endif
 };
 

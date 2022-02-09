@@ -143,9 +143,7 @@ management to ensure correct alignment for doubles etc. */
 */
 
 /* The universal page size of the database */
-#define UNIV_PAGE_SIZE                                                                                                 \
-  (2 * 8192) /* NOTE! Currently, this has to be a                                                                      \
-          power of 2 */
+#define UNIV_PAGE_SIZE       (2 * 8192) /* NOTE! Currently, this has to be a power of 2 */
 /* The 2-logarithm of UNIV_PAGE_SIZE: */
 #define UNIV_PAGE_SIZE_SHIFT 14
 
@@ -191,7 +189,7 @@ headers may define 'bool' differently. Do not assume that 'bool' is a ulint! */
 
 #ifndef TRUE
 
-#define TRUE 1
+#define TRUE  1
 #define FALSE 0
 
 #endif

@@ -67,9 +67,7 @@ log. */
 #define OS_FILE_NOT_FOUND 71
 #define OS_FILE_DISK_FULL 72
 #define OS_FILE_ALREADY_EXISTS 73
-#define OS_FILE_AIO_RESOURCES_RESERVED                                                                                 \
-  74 /* wait for OS aio resources                                                                                      \
-     to become available again */
+#define OS_FILE_AIO_RESOURCES_RESERVED 74 /* wait for OS aio resources to become available again */
 #define OS_FILE_ERROR_NOT_SPECIFIED 75
 
 /* Types for aio operations */
@@ -78,17 +76,11 @@ log. */
 
 #define OS_FILE_LOG 256 /* This can be ORed to type */
 
-#define OS_AIO_N_PENDING_IOS_PER_THREAD                                                                                \
-  32 /* Win NT does not allow more                                                                                     \
-     than 64 */
+#define OS_AIO_N_PENDING_IOS_PER_THREAD 32 /* Win NT does not allow more than 64 */
 
 /* Modes for aio operations */
-#define OS_AIO_NORMAL                                                                                                  \
-  21 /* Normal asynchronous i/o not for ibuf                                                                           \
-     pages or ibuf bitmap pages */
-#define OS_AIO_IBUF                                                                                                    \
-  22                  /* Asynchronous i/o for ibuf pages or ibuf                                                       \
-                      bitmap pages */
+#define OS_AIO_NORMAL 21 /* Normal asynchronous i/o not for ibuf pages or ibuf bitmap pages */
+#define OS_AIO_IBUF  22 /* Asynchronous i/o for ibuf pages or ibuf bitmap pages */
 #define OS_AIO_LOG 23 /* Asynchronous i/o for the log */
 #define OS_AIO_SYNC                                                                                                    \
   24 /* Asynchronous i/o where the calling thread                                                                      \

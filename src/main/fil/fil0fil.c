@@ -112,8 +112,7 @@ struct fil_space_struct {
   char *name;    /* space name */
   ulint id;      /* space id */
   ulint purpose; /* FIL_TABLESPACE, FIL_LOG, or FIL_ARCH_LOG */
-  UT_LIST_BASE_NODE_T(fil_node_t) chain;
-  /* base node for the file chain */
+  UT_LIST_BASE_NODE_T(fil_node_t) chain; /* base node for the file chain */
   ulint size; /* space size in pages */
   ulint n_reserved_extents;
   /* number of reserved free extents for

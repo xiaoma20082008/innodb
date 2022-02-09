@@ -20,12 +20,9 @@ typedef void *os_event_t;
 
 typedef pthread_mutex_t os_fast_mutex_t;
 struct os_event_struct {
-  os_fast_mutex_t os_mutex; /* this mutex protects the next
-                            fields */
-  ibool is_set;             /* this is TRUE if the next mutex is
-                            not reserved */
-  pthread_cond_t cond_var;  /* condition variable is used in
-                            waiting for the event */
+  os_fast_mutex_t os_mutex; /* this mutex protects the next fields */
+  ibool is_set;             /* this is TRUE if the next mutex is not reserved */
+  pthread_cond_t cond_var;  /* condition variable is used in waiting for the event */
 };
 typedef struct os_event_struct os_event_struct_t;
 typedef os_event_struct_t *os_event_t;

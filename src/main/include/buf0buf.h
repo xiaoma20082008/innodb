@@ -32,19 +32,14 @@ Created 11/5/1995 Heikki Tuuri
 #include "ut0byte.h"
 
 /* Flags for flush types */
-#define BUF_FLUSH_LRU 1
+#define BUF_FLUSH_LRU         1
 #define BUF_FLUSH_SINGLE_PAGE 2
-#define BUF_FLUSH_LIST                                                                                                 \
-  3 /* An array in the pool struct                                                                                     \
-    has size BUF_FLUSH_LIST + 1: if you                                                                                \
-    add more flush types, put them in                                                                                  \
-    the middle! */
+/* An array in the pool struct has size BUF_FLUSH_LIST + 1: if you   add more flush types, put them in the middle! */
+#define BUF_FLUSH_LIST        3
 /* Modes for buf_page_get_gen */
-#define BUF_GET 10            /* get always */
-#define BUF_GET_IF_IN_POOL 11 /* get if in pool */
-#define BUF_GET_NOWAIT                                                                                                 \
-  12 /* get if can set the latch without                                                                               \
-     waiting */
+#define BUF_GET               10 /* get always */
+#define BUF_GET_IF_IN_POOL    11 /* get if in pool */
+#define BUF_GET_NOWAIT        12 /* get if can set the latch without waiting */
 #define BUF_GET_NO_LATCH                                                                                               \
   14 /* get and bufferfix, but set no latch;                                                                           \
      we have separated this case, because                                                                              \
@@ -53,12 +48,10 @@ Created 11/5/1995 Heikki Tuuri
      with care */
 /* Modes for buf_page_get_known_nowait */
 #define BUF_MAKE_YOUNG 51
-#define BUF_KEEP_OLD 52
+#define BUF_KEEP_OLD   52
 
 extern buf_pool_t *buf_pool;   /* The buffer pool of the database */
-extern ibool buf_debug_prints; /* If this is set TRUE, the program
-                              prints info whenever read or flush
-                              occurs */
+extern ibool buf_debug_prints; /* If this is set TRUE, the program prints info whenever read or flush occurs */
 
 /************************************************************************
 Initializes the buffer pool of the database. */
@@ -769,13 +762,13 @@ struct buf_pool_struct {
   212                           /* when buf_get_free_block returns                                                     \
                                 a block, it is in this state */
 #define BUF_BLOCK_FILE_PAGE 213 /* contains a buffered file page */
-#define BUF_BLOCK_MEMORY 214    /* contains some main memory object */
+#define BUF_BLOCK_MEMORY    214 /* contains some main memory object */
 #define BUF_BLOCK_REMOVE_HASH                                                                                          \
   215 /* hash index should be removed                                                                                  \
       before putting to the free list */
 
 /* Io_fix states of a control block; these must be != 0 */
-#define BUF_IO_READ 561
+#define BUF_IO_READ  561
 #define BUF_IO_WRITE 562
 
 /************************************************************************

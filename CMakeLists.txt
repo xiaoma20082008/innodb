@@ -10,8 +10,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(CMAKE_CXX_FLAGS_DEBUG "-g -O0 -std=c++1z -Wall -Werror -fno-rtti -fno-exceptions")
-set(CMAKE_CXX_FLAGS_RELEASE " -O1 -std=c++1z -Wall -Werror -fno-rtti -fno-exceptions")
+set(CXX_COMMON_FLAGS "-std=c++17 -Wall -Werror -fpic -fpie -fno-rtti -fno-exceptions")
+set(CMAKE_CXX_FLAGS_DEBUG "-g -O0 ${CXX_COMMON_FLAGS}")
+set(CMAKE_CXX_FLAGS_RELEASE " -O2 ${CXX_COMMON_FLAGS}")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/lib)

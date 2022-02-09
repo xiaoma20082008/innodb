@@ -25,24 +25,19 @@ Created 1/8/1996 Heikki Tuuri
 #include "ut0mem.h"
 #include "ut0rnd.h"
 
-/* Type flags of an index: OR'ing of the flags is allowed to define a
-combination of types */
+/* Type flags of an index: OR'ing of the flags is allowed to define a combination of types */
 #define DICT_CLUSTERED 1 /* clustered index */
-#define DICT_UNIQUE 2    /* unique index */
-#define DICT_UNIVERSAL                                                                                                 \
-  4                 /* index which can contain records from any                                                        \
-                    other index */
-#define DICT_IBUF 8 /* insert buffer tree */
+#define DICT_UNIQUE    2 /* unique index */
+#define DICT_UNIVERSAL 4 /* index which can contain records from any other index */
+#define DICT_IBUF      8 /* insert buffer tree */
 
 /* Flags for ordering an index field: OR'ing of the flags allowed */
 #define DICT_DESCEND 1 /* in descending order (default ascending) */
 
 /* Types for a table object */
-#define DICT_TABLE_ORDINARY 1
+#define DICT_TABLE_ORDINARY       1
 #define DICT_TABLE_CLUSTER_MEMBER 2
-#define DICT_TABLE_CLUSTER                                                                                             \
-  3 /* this means that the table is                                                                                    \
-    really a cluster definition */
+#define DICT_TABLE_CLUSTER        3 /* this means that the table is really a cluster definition */
 
 /**************************************************************************
 Creates a table memory object. */
@@ -64,11 +59,9 @@ dict_cluster_t *dict_mem_cluster_create(
     /* out, own: cluster object (where the type
     dict_cluster_t == dict_table_t) */
     char *name,     /* in: cluster name */
-    ulint space,    /* in: space where the clustered indexes
-                    of the member tables are placed */
+    ulint space,    /* in: space where the clustered indexes of the member tables are placed */
     ulint n_cols,   /* in: number of columns */
-    ulint mix_len); /* in: length of the common key prefix in the
-                    cluster */
+    ulint mix_len); /* in: length of the common key prefix in the cluster */
 /**************************************************************************
 Declares a non-published table as a member in a cluster. */
 
@@ -95,9 +88,7 @@ dict_index_t *dict_mem_index_create(
     /* out, own: index object */
     char *table_name, /* in: table name */
     char *index_name, /* in: index name */
-    ulint space,      /* in: space where the index tree is placed,
-                      ignored if the index is of the clustered
-                      type */
+    ulint space,      /* in: space where the index tree is placed, ignored if the index is of the clustered type */
     ulint type,       /* in: DICT_UNIQUE, DICT_CLUSTERED, ... ORed */
     ulint n_fields);  /* in: number of fields */
 /**************************************************************************
@@ -109,8 +100,7 @@ void dict_mem_index_add_field(
     /*=====================*/
     dict_index_t *index, /* in: index */
     char *name,          /* in: column name */
-    ulint order);        /* in: order criterion; 0 means an ascending
-                         order */
+    ulint order);        /* in: order criterion; 0 means an ascending order */
 /**************************************************************************
 Frees an index memory object. */
 
@@ -130,8 +120,7 @@ dict_proc_t *dict_mem_procedure_create(
     /*======================*/
     /* out, own: procedure object */
     char *name,         /* in: procedure name */
-    char *sql_string,   /* in: procedure definition as an SQL
-                        string */
+    char *sql_string,   /* in: procedure definition as an SQL string */
     que_fork_t *graph); /* in: parsed procedure graph */
 
 /* Data structure for a column in a table */
